@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300;400;500;600;700&display=swap');
+body{
+    height: 100vh;
+    background-color:#BC96E6;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+header{
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 10%;
+}
+
+header h1 {
+    font-size: 48px; 
+    padding: 10px;
+    position: relative;
+    top: 25px;
+    font-weight: 700;
+}
+
+input:checked{
+    color: #BF00E0;
+}
+
+.btn{
+    background-color: #BF00E0;
+    color: aliceblue;
+    border-color: #BF00E0;
+}
+
+.btn:hover{
+    background-color: #BC96E6;
+    border-color: #BC96E6;
+}
+
+footer p{
+    font-size: 12px;
+    text-align: center;
+}
+
+#first-conteiner{
+    height: 70vh;
+    width: 60%;
+    background-color:azure;
+    position: relative;
+    margin: auto;
+    margin-top: 0vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#second-conteiner{
+    height: 70vh;
+    width: 50%;
+    background-color:azure;
+    position: relative;
+    margin: auto;
+    margin-top: 0vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.conteiner{
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+    border-radius: 15px;
+}
+
+.conteiner.active{
+    opacity: 1;
+    pointer-events: auto;
+    display: block;
+}
+
+.oflow{
+    overflow: auto;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list li {
+    list-style: none;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color:#d1d1d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color:#BF00E0;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+option{
+    color: #BF00E0;
+}
+
+option:hover{
+    background-color: #BC96E6;
+}
+
+.bilgi{
+    margin-top: 10px;
+}
+
+.info{
+    width: 33%;
+}
+
+.info h3{
+    font-size: 16px;
+    margin-left: 30px;
+}
+
+.secim{
+    width: 60%;
+}
+
+label{
+    font-size: 12px;
+}
+
+.funct{
+    width: 80%;
+    margin: auto;
+}
+
+.funct ul li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.funct-info ul li input{
+    width: 20%;
+}
+
+#buttons{
+    margin: 3% 5%;
+}
+
+.ort ul{
+    margin: auto;
+    width: 30%;
+    padding: 0;
+}
+
+.ort ul li{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20%;
+    align-items: center;
+}
+
+.ort ul li p{
+    font-size: 14px;
+}
+
+#back-btn{
+    position: absolute;
+    bottom: 15px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+footer{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    bottom: -2%;
+    
+}
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color:aliceblue;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: aliceblue;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #BF00E0;
+}

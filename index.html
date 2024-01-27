@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>İTÜ BeeHive|Not Hesaplama</title>
+    <link rel="stylesheet" href="style/style.css">
+    <style>
+        @media(max-width:900px){
+        #first-conteiner{
+        width: 95%;
+        margin: auto;
+        margin-top: 50px;
+    }
+        #second-conteiner{
+        width: 95%;
+        margin: auto;
+        margin-top: 50px;
+    }
+    .info{
+        width: 25%;
+    }
+    .secim{
+        width: 75%;
+    }
+    .funct{
+        width: 100%;
+    }
+    .ort ul{
+        width: 50%;
+    }
+}
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>İTÜ BeeHive</h1>
+        <h2>Not Hesaplama Aracı</h2>
+    </header>
+    <div id="all-in" class="">
+        <div id="first-conteiner" class="oflow conteiner active">
+            <div id="func-choose" class="bilgi">
+                <div id="funct" class="flex">
+                    <div class="info">
+                        <h3>Hangi İşlemi Yapmak İstiyorsunuz?</h3>
+                    </div>
+                    <div class="secim">
+                        <ul id="system-choise" class="list">
+                            <li>
+                                <input onchange="system_choise()" type="radio" name="funct" id="genel" checked>
+                                <label for="genel">Genel Not Hesaplama</label>
+                            </li>
+                            <li>
+                                <input onchange="system_choise()" type="radio" name="funct" id="donem">
+                                <label for="donem">Dönem Not Hesaplama</label>
+                            </li>
+                            <li>
+                                <input onchange="system_choise()" type="radio" name="funct" id="ders">
+                                <label for="ders">Tekrar Alınan Dersin Ortalamaya Etkisini Hesaplama</label>
+                            </li>
+                            <li>
+                                <input onchange="system_choise()" type="radio" name="funct" id="harf">
+                                <label for="harf">Bir Dersin Harf Notunu Hesaplama</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div  id="system-choose" class="bilgi" style="margin-bottom: 10px;">
+                <div id="system" class="flex">
+                    <div class="info">
+                        <h3>Harf Notu Sisteminizi Seçin</h3>
+                    </div>
+                    <div class="secim">
+                        <ul class="list">
+                            <li>
+                                <input onchange="" type="radio" name="systm" id="aa" checked>
+                                <label for="aa">AA BA+ BA BB+ BB CB+ CB CC+ CC DC+ DC DD+ DD FF</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="funct-a" class="funct conteiner active">
+                <div id="a-info" class="funct-info">
+                    <ul class="list">
+                        <li>
+                            <label for="a-dsayisi">Toplam Ders Sayısını Seçiniz:</label>
+                            <select onchange="ders_display()" id="a-dsayisi">
+                                <option selected="selected" value=''>Seçiniz</option>
+                                <option value="1">1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                                <option value='5'>5</option>
+                                <option value='6'>6</option>
+                                <option value='7'>7</option>
+                                <option value='8'>8</option>
+                                <option value='9'>9</option>
+                                <option value='10'>10</option>
+                                <option value='11'>11</option>
+                                <option value='12'>12</option>
+                                <option value='13'>13</option>
+                                <option value='14'>14</option>
+                                <option value='15'>15</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div id="a-dersler" class="funct-dersler">
+                    <ul class="list">
+                        <li>
+                            <p>Ders Adı</p>
+                            <p>Kredi Miktarı</p>
+                            <p>Alınan Not</p>
+                        </li>
+                    </ul>
+                    <ul class="list" id="aul">
+                        
+                   </ul>
+                </div>
+            </div>
+            <div id="funct-b" class="funct conteiner ">
+                <div id="b-info" class="funct-info">
+                    <ul class="list">
+                        <li>
+                            <label for="b-tkredi">Toplam Alınan Kredi Giriniz:</label>
+                                <input type="number" id="b-tkredi">
+                        </li>
+                        <li>
+                            <label for="b-mort">Mevcut Ortalamanızı Giriniz</label>
+                            <input type="number" id="b-mort" min="0" max="4" step="0.01">
+                        </li>
+                        <li>
+                            <label for="b-dsayisi">Dönem Ders Sayısını Seçiniz:</label>
+                            <select onchange="ders_display()" id="b-dsayisi">
+                                <option selected="selected" value=''>Seçiniz</option>
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                                <option value='5'>5</option>
+                                <option value='6'>6</option>
+                                <option value='7'>7</option>
+                                <option value='8'>8</option>
+                                <option value='9'>9</option>
+                                <option value='10'>10</option>
+                                <option value='11'>11</option>
+                                <option value='12'>12</option>
+                                <option value='13'>13</option>
+                                <option value='14'>14</option>
+                                <option value='15'>15</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div id="b-dersler" class="funct-dersler">
+                    <ul class="list">
+                        <li>
+                            <p>Ders Adı</p>
+                            <p>Kredi Miktarı</p>
+                            <p>Alınan Not</p>
+                        </li>
+                    </ul>
+                    <ul class="list" id="bul">
+                        
+                    </ul>
+                </div>
+            </div>
+            <div id="funct-c" class="funct conteiner ">
+                <div id="c-info" class="funct-info">
+                    <ul class="list">
+                        <li>
+                            <label for="c-tkredi">Toplam Alınan Kredi Giriniz:</label>
+                                <input type="number" id="c-tkredi">
+                        </li>
+                        <li>
+                            <label for="c-mort">Mevcut Ortalamanızı Giriniz</label>
+                            <input type="number" id="c-mort" min="0" max="4" step="0.01">
+                        </li>
+                        <li>
+                            <label for="c-dsayisi">Tekrar Alınan Ders Sayısını Seçiniz:</label>
+                            <select onchange="ders_display()" id="c-dsayisi">
+                                <option selected="selected" value=''>Seçiniz</option>
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                                <option value='5'>5</option>
+                                <option value='6'>6</option>
+                                <option value='7'>7</option>
+                                <option value='8'>8</option>
+                                <option value='9'>9</option>
+                                <option value='10'>10</option>
+                                <option value='11'>11</option>
+                                <option value='12'>12</option>
+                                <option value='13'>13</option>
+                                <option value='14'>14</option>
+                                <option value='15'>15</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div id="c-dersler" class="funct-dersler">
+                    <ul class="list">
+                        <li>
+                            <p>Ders Adı</p>
+                            <p>Kredi Miktarı</p>
+                            <p>Eski Not</p>
+                            <p>Yeni Not</p>
+                        </li>
+                    </ul>
+                    <ul class="list" id="cul">
+                        
+                    </ul>
+                </div>
+            </div>
+            <div id="funct-d" class="funct conteiner ">
+                <div id="d-info" class="funct-info">
+                    <ul class="list">
+                        <li>
+                            <label for="d-dsayisi">Toplam Vize, Final, Ödev, Quiz sayısı:</label>
+                            <select onchange="ders_display()" id="d-dsayisi">
+                                <option selected="selected" value=''>Seçiniz</option>
+                                <option value="1">1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                                <option value='5'>5</option>
+                                <option value='6'>6</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div id="d-dersler" class="funct-dersler">
+                    <ul class="list">
+                        <li>
+                            <p>Not Türü</p>
+                            <p>Aldığım Not</p>
+                            <p>Ortalama</p>
+                            <p>Standart Sapma</p>
+                            <p>Etki Yüzdesi</p>
+                        </li>
+                    </ul>
+                    <ul class="list" id="dul">   
+                   </ul>
+                </div>
+            </div>
+            <div id="buttons" class="buttons flex">
+                <button onclick="yenile()" class="trash-btn btn btn-outline-info"><i class="fa-solid fa-trash"></i></button>
+                <button onclick="calculate()" id="btn-cal" class="btn btn-info">Hesapla </button>
+            </div>
+        </div>
+        
+        <div id="second-conteiner" class="oflow conteiner ">
+            <div id="genel-conteiner" class="ort conteiner active">
+                <ul class="list" id="a_ul">
+                </ul>
+            </div>
+            <div id="donem-conteiner" class="ort conteiner ">
+                <ul class="list" id="b_ul">
+                </ul>
+            </div>
+            <div id="tekrar-conteiner" class="ort conteiner ">
+                <ul class="list" id="c_ul">
+                </ul>
+            </div>
+            <div id="harf-conteiner" class="ort conteiner ">
+                <ul class="list" id="d_ul">
+                </ul>
+            </div>
+            <div id="back-btn">
+                <button onclick="refresh()" class="btn btn-outline-info btn-lg">Başa Dön</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Copyrights © 2022</p>
+    </footer>
+    <script src="script/script.js"></script>
+</body>
+</html>
